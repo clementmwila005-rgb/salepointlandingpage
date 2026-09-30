@@ -177,7 +177,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        // FULL KEYS FOR IMMEDIATE CONNECTION
         const SUPABASE_URL = 'https://hxdjzjywhdfjmcjruznj.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh4ZGp6anl3aGRmam1janJ1em5qIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA1MDMyODgsImV4cCI6MjEwNjA3OTI4OH0.16FhiOBc3eSZnubyss6YdBgWwMNVn7UFdA4IXLz00v4'; 
         
@@ -197,13 +196,12 @@
             };
 
             try {
-                // Direct insert check
                 const { error } = await supabaseClient.from('leads').insert([formData]);
                 if (error) throw error;
                 document.getElementById('leadForm').classList.add('hidden');
                 document.getElementById('successMsg').classList.remove('hidden');
             } catch (error) {
-                console.error('Detailed Error:', error);
+                console.error('Supabase Error:', error);
                 alert('System Error: ' + error.message);
                 submitBtn.disabled = false;
                 submitBtn.innerText = 'Secure My Business';
